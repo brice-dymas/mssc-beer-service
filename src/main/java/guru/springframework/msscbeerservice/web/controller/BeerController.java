@@ -17,17 +17,17 @@ import java.util.UUID;
 public class BeerController {
 
     @GetMapping("/{beerId}")
-    private ResponseEntity<BeerDto> getById(@PathVariable("beerId") UUID beerId) {
+    public ResponseEntity<BeerDto> getById(@PathVariable("beerId") UUID beerId) {
         return ResponseEntity.ok(BeerDto.builder().build());
     }
 
-    @PostMapping()
-    private ResponseEntity saveBeer(@RequestBody BeerDto beerDto) {
+    @PostMapping
+    public ResponseEntity saveBeer(@RequestBody BeerDto beerDto) {
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @PutMapping("/{beerId}")
-    private ResponseEntity updateBeer(@RequestBody BeerDto beerDto, @PathVariable("beerId") String beerId) {
+    public ResponseEntity updateBeer(@RequestBody BeerDto beerDto, @PathVariable("beerId") String beerId) {
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }
