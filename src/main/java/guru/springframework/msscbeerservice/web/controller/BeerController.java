@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 /**
  * Projet:  mssc-beer-service
  * Cree par: Brice dymas
@@ -22,12 +24,12 @@ public class BeerController {
     }
 
     @PostMapping
-    public ResponseEntity saveBeer(@RequestBody BeerDto beerDto) {
+    public ResponseEntity saveBeer(@Valid @RequestBody BeerDto beerDto) {
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @PutMapping("/{beerId}")
-    public ResponseEntity updateBeer(@RequestBody BeerDto beerDto, @PathVariable("beerId") String beerId) {
+    public ResponseEntity updateBeer(@Valid @RequestBody BeerDto beerDto, @PathVariable("beerId") String beerId) {
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }
